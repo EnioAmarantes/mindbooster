@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 import ProfileDrawer from './ProfileDrawer';
 import MyCollections from '../pages/collections/MyCollections';
 import Cards from '../pages/cards/Cards';
+import COLORS from '../utils/Colors';
 
 Icon.loadFont();
 
@@ -22,14 +23,9 @@ export default function Menu(){
             drawerContent={props => <CustomDrawerContent {...props} />}
         >
             <Drawer.Screen 
-                name="Collection" 
+                name="Minhas Coleções" 
                 component={MyCollections} 
-                options={ {headerShown: false, drawerIcon: config => <Icon name="home" size={30} color="white" />} } 
-            />
-            <Drawer.Screen 
-                name="Cards" 
-                component={Cards} 
-                options={ {headerShown: false, drawerIcon: config => <Icon name="shopping-cart" size={30} color="white" />} }
+                options={ {headerShown: true, drawerIcon: config => <Icon name="sliders" size={30} color="white" />} } 
             />
         </Drawer.Navigator>
     )
@@ -40,7 +36,7 @@ function CustomDrawerContent(props) {
         <DrawerContentScrollView {...props}>
             <ProfileDrawer />
             <DrawerItemList {...props} />
-            <DrawerItem label="Logout" onPress={() => props.navigation.popToTop()} labelStyle={{color: 'white', fontSize: 18}} icon={() => <Icon name="sign-out" size={30} color="white" />}/>
+            <DrawerItem label="Logout" onPress={() => props.navigation.popToTop()} labelStyle={{color: 'white', fontSize: 18}} icon={() => <Icon name="angle-left" size={30} color="white" />}/>
         </DrawerContentScrollView>
     )
 }
@@ -48,7 +44,7 @@ function CustomDrawerContent(props) {
 const styles = StyleSheet.create({
     drawerStyle: {
         width: 250,
-        backgroundColor: '#d694b8',
+        backgroundColor: COLORS.PRIMARY,
     },
     labelStyle: {
         color: 'white',

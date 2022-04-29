@@ -1,0 +1,6 @@
+export const ColorsImage = require('./Colors.png')
+export const ArvoreImage = require('./arvore.png')
+export const BolaImage = require('./bola.png')
+export const MindImage = require('./mind.png')
+export const SetaImage = require('./seta.png')
+export const UrsoImage = require('./urso.png')

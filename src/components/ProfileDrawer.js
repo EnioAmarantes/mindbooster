@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-export default function PrfileDrawer() {
+export default function ProfileDrawer() {
     return(
         <TouchableOpacity>
             <View style={styles.container}>
@@ -10,8 +10,7 @@ export default function PrfileDrawer() {
                 </View>
 
                 <View style={styles.drawerContainer}>
-                    <Text style={styles.drawerText}>UserName</Text>
-                    <Text style={styles.drawerTextSmall}>Open Profile</Text>
+                    <Text style={styles.drawerText}>Fernando Soares</Text>
                 </View>
 
             </View>
@@ -22,10 +21,11 @@ export default function PrfileDrawer() {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        height: 165,
+        height: 180,
+        marginBottom: 20,
     },
     imageContainer: {
-        margintop: 10,
+        marginTop: 30,
         borderWidth: 1,
         borderColor: '#ddd',
         elevation: 6,
@@ -37,12 +37,16 @@ const styles = StyleSheet.create({
     drawerText: {
         color: 'white',
         fontSize: 18,
+        marginVertical: 10,
     },
     drawerTextSmall: {
         color: 'white',
         fontSize: 12,
     },
     drawerContainer: {
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingBottom: 10,
+        borderBottomWidth: 3,
+        borderBottomColor: 'grey',
     }
 })

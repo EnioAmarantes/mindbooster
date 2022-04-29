@@ -3,6 +3,8 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+import COLORS from '../utils/Colors';
+
 Icon.loadFont();
 
 export default function HeaderDrawerNav({title, navigation}) {
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     button: {
-        backgroundColor: '#BC85A3',
+        backgroundColor: COLORS.PRIMARY,
     },
     text: {
         color: 'white',
@@ -33,12 +35,12 @@ const styles = StyleSheet.create({
         fontSize: 23,
     },
     containerTitle: {
-        backgroundColor: '#BC85A3',
+        backgroundColor: COLORS.PRIMARY,
         width: '100%',
     },
     containerButton: {
         justifyContent: 'center',
-        backgroundColor: '#BC85A3',
+        backgroundColor: COLORS.PRIMARY,
         paddingHorizontal: 10,
     }
 })
