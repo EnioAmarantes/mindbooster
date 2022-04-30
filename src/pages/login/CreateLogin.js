@@ -17,7 +17,12 @@ const CreateLogin = (props) => {
 
             <View style={styles.inputContainer}>
 
-                <TextInput style={styles.input} label="E-mail" keyboardType='email-address' onChangeText={onChangeEmail}  />
+                <TextInput 
+                    style={styles.input} 
+                    label="E-mail" 
+                    keyboardType='email-address' 
+                    onChangeText={onChangeEmail}  
+                />
 
                 <TextInput 
                     style={styles.input}
