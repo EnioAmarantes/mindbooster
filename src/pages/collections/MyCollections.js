@@ -1,6 +1,7 @@
 import React from "react";
 import { View, SafeAreaView, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { ColorsImage, ArvoreImage, BolaImage, SetaImage, UrsoImage } from '../../../assets/imgs';
+import HeaderDrawerNav from "../../components/HeaderDrawerNavigator";
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -21,19 +22,22 @@ const MyCollections = ({navigation}) => {
     const renderItem = ({ item }) => <Collection collection={item} navigation={navigation} /> ;
 
     return(
+        <>
+        <HeaderDrawerNav title='Minhas coleções' navigation={navigation} />
         <SafeAreaView style={styles.container}>
             <FlatList
                 style={styles.items}
                 data={COLLECTIONS}
                 renderItem={renderItem}
-            />
+                />
             <TouchableOpacity 
                 style={styles.addButton} 
                 onPress={() => navigation.navigate('newCollection')}
-            >
+                >
                 <Icon name={"plus"}  size={20} color="#fff" />
             </TouchableOpacity>
         </SafeAreaView>
+        </>
     )
 }
 

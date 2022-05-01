@@ -2,14 +2,18 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { Button } from "@react-native-material/core";
+import HeaderDrawerNav from "../../components/HeaderDrawerNavigator";
 
 import COLORS from '../../utils/Colors';
 
 const NewCollection = props => {
-    const { collection } = props;
+    const { collection, navigation } = props;
 
     return(
+        <>
+        <HeaderDrawerNav title='Minhas coleções' navigation={navigation} />
         <View style={styles.container}>
+
             <Text style={styles.title}>Preencha os dados referente à coleção a ser criada</Text>
 
             <View style={styles.formContainer} >
@@ -23,13 +27,16 @@ const NewCollection = props => {
                     style={styles.buttonCreate}
                     color="#6A61A1"
                     title='CADASTRAR' 
-                />
+                    />
 
                 <Button 
+                    onPress={() => navigation.navigate('menu')}
                     style={styles.buttonCancel}
-                    title='CANCELAR'/>
+                    title='CANCELAR'
+                />
             </View>
         </View>
+        </>
     )
 }
 

@@ -8,6 +8,7 @@ import Login from './src/pages/login/Login';
 import Menu from './src/components/Menu';
 import Cards from './src/pages/cards/Cards';
 import NewCollection from './src/pages/collections/NewCollection';
+import NewCard from './src/pages/cards/NewCard';
 
 const Stack = createStackNavigator();
 
@@ -31,8 +32,9 @@ const App = () => {
         <Stack.Screen name="login" component={Login} options={ {headerShown: false} } />
         <Stack.Screen name="menu" component={Menu} options={ {headerShown: false} }/>
         <Stack.Screen name="createLogin" component={CreateLogin} options={ {headerShown: false} }/>
-        <Stack.Screen name="cards" component={Cards} />
-        <Stack.Screen name="newCollection" component={NewCollection} />
+        <Stack.Screen name="cards" component={Cards} options={ {headerShown: false} } />
+        <Stack.Screen name="newCollection" component={NewCollection} options={ {headerShown: false} } />
+        <Stack.Screen name="newCard" component={NewCard} options={ {headerShown: false} } />
       </Stack.Navigator>
     </NavigationContainer>
   );

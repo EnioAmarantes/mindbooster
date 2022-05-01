@@ -8,16 +8,18 @@ Icon.loadFont();
 const Collection = (props) => {
     const { collection, navigation } = props;
     return(
-            <TouchableOpacity onPress={() => navigation.navigate('cards')}>
-        <View style={style.card}>
+        <TouchableOpacity onPress={() => navigation.navigate('cards', collection)}>
+            <View style={style.card}>
+
                 <Image style={style.image} source={collection.imagem} />
                 <Text style={style.text}>{collection.title}</Text>
-            <View style={style.iconsContainer}>
-                <Icon name='pencil' size={34} style={style.edit} />
-                <Icon name='trash' size={34} style={style.remove} />
+
+                <View style={style.iconsContainer}>
+                    <Icon name='pencil' size={34} style={style.edit} />
+                    <Icon name='trash' size={34} style={style.remove} />
+                </View>
             </View>
-        </View>
-            </TouchableOpacity>
+        </TouchableOpacity>
     );
 }
 const style=StyleSheet.create({

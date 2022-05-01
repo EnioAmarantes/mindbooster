@@ -25,7 +25,7 @@ export default function Menu(){
             <Drawer.Screen 
                 name="Minhas Coleções" 
                 component={MyCollections} 
-                options={ {headerShown: true, drawerIcon: config => <Icon name="sliders" size={30} color="white" />} } 
+                options={ {headerShown: false, drawerIcon: config => <Icon name="sliders" size={30} color="#fff" />} } 
             />
         </Drawer.Navigator>
     )
