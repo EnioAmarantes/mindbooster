@@ -9,6 +9,7 @@ import Menu from './src/components/Menu';
 import Cards from './src/pages/cards/Cards';
 import NewCollection from './src/pages/collections/NewCollection';
 import NewCard from './src/pages/cards/NewCard';
+import Play from './src/components/Play';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,7 @@ const App = () => {
         <Stack.Screen name="cards" component={Cards} options={ {headerShown: false} } />
         <Stack.Screen name="newCollection" component={NewCollection} options={ {headerShown: false} } />
         <Stack.Screen name="newCard" component={NewCard} options={ {headerShown: false} } />
+        <Stack.Screen name="play" component={Play} options={{headerShown: false}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

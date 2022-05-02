@@ -12,13 +12,13 @@ import Card from "../../components/Card";
 
 export default function Cards(props) {
     const {navigation} = props;
-    const {cards, title, collection} = props.route.params;
-
-    console.log(props.route.params)
-    console.log('Coleções ' + collection)
-    console.log(cards)
+    const {cards, title} = props.route.params;
 
     const renderItem = ({ item }) => <Card card={item} navigation={navigation} /> ;
+
+    function letsPlay(){
+        navigation.navigate('play', {cards});
+    }
 
     return(
         <View>
@@ -33,6 +33,7 @@ export default function Cards(props) {
                 <Button
                     style={styles.buttonPlay} 
                     title="Jogar!" 
+                    onPress={() => letsPlay()}
                 />
 
                 <FlatList
@@ -43,7 +44,7 @@ export default function Cards(props) {
 
                 <TouchableOpacity 
                     style={styles.addButton} 
-                    onPress={() => navigation.navigate('newCard', collection)}
+                    onPress={() => navigation.navigate('newCard', props.route.params)}
                 >
                     <Icon name={"plus"}  size={20} color="#fff" />
                 </TouchableOpacity>

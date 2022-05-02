@@ -10,25 +10,27 @@ const NewCard = props => {
     const [frontText, setFrontText] = React.useState('');
     const [backText, setBackText] = React.useState('');
 
-    console.log(props.route.params)
-
     return(
         <>
         <HeaderDrawerNav title={'Coleção - ' + headerTitle} navigation={navigation} />
         <View style={styles.container}>
             <Text style={styles.title}>Preencha os dados da frente e do verso do flashcard</Text>
 
-            <TextInput 
-                style={styles.inputFront}
-                onChangeText={setFrontText}
-                value={frontText}
-            />
-            <TextInput 
-                style={styles.inputBack}
-                label='Verso'
-                onChangeText={setBackText}
-                value={backText}
-            />
+            <View style={styles.cardContainer}>
+                <Text style={styles.label} >Frente</Text>
+                <TextInput 
+                    style={styles.inputFront}
+                    onChangeText={setFrontText}
+                    value={frontText}
+                />
+                <Text style={styles.label} >Verso</Text>
+                <TextInput 
+                    style={styles.inputBack}
+                    label='Verso'
+                    onChangeText={setBackText}
+                    value={backText}
+                />
+            </View>
 
             <View style={styles.buttonContainer}>
                 <Button 
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
         height: '100%',
         backgroundColor: COLORS.PRIMARY,
         paddingHorizontal: 30,
+        marginBottom: 60,
     },
     title: {
         color: '#fff',
@@ -60,19 +63,38 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 24,
     },
+    cardContainer: {
+        backgroundColor: '#fff',
+        borderRadius: 8,
+        padding: 10,
+        marginTop: 30,
+    },
+    label: {
+        color: 'grey',
+        fontSize: 14,
+    },
     inputFront: {
-        height: 120,
+        height: 100,
+        fontSize: 34,
         textAlign: 'center',
         backgroundColor: '#fff',
+        textDecorationLine: 'underline',
+        fontWeight: 'bold',
+        borderBottomWidth: 1,
+        borderStyle: 'dashed',
+        borderBottomColor: '#f0f0f0'
     },
     inputBack: {
-        height: 120,
+        height: 100,
+        fontSize: 34,
         textAlign: 'center',
         backgroundColor: '#fff',
+        textDecorationLine: 'underline',
+        fontWeight: 'bold',
     },
     buttonContainer: {
-        height: '30%',
-        marginTop: 30,
+        height: 200,
+        marginTop: 20,
         justifyContent: 'space-between',
     },
     buttonCreate: {
