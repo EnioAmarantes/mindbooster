@@ -11,20 +11,18 @@ const Card = (props) => {
         <TouchableOpacity onPress={() => navigation.navigate('newCard')}>
             <View style={style.container}>
 
-                <View>
+                <View style={style.frontContainer}>
                     <Text style={style.label}>Frente</Text>
                     <Text style={style.text}>{card.front}</Text>
                 </View>
 
-                <View>
+                <View style={style.backContainer}>
                     <Text style={style.label}>Verso</Text>
                     <Text style={style.text}>{card.back}</Text>
                 </View>
 
-                <View style={style.iconsContainer}>
-                    <Icon name='pencil' size={28} style={style.edit} onPress={() => navigation.navigate('newCard', card, title)} />
-                    <Icon name='trash' size={28} style={style.remove} />
-                </View>
+                <Icon name='pencil' size={28} style={style.edit} onPress={() => navigation.navigate('newCard', card, title)} />
+                <Icon name='trash' size={28} style={style.remove} />
             </View>
         </TouchableOpacity>
     );
@@ -56,14 +54,23 @@ const style=StyleSheet.create({
         fontWeight: 'bold',
         marginRight: 23,
     },
+    frontContainer:{
+        flex: 3,
+    },
+    backContainer: {
+        flex: 3,
+    },
     iconsContainer: {
+        flex: 2,
         alignItems: 'space-around',
         justifyContent: 'center',
     },
     edit: {
+        flex: 1,
         color: '#4472C4',
     },
     remove: {
+        flex: 1,
         color: '#FF1010',
     }
 })

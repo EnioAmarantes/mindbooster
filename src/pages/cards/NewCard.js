@@ -7,8 +7,14 @@ import COLORS from '../../utils/Colors';
 const NewCard = props => {
     const headerTitle = props.route.params.title;
     const {navigation} = props;
+    const card = props.route.params;
     const [frontText, setFrontText] = React.useState('');
     const [backText, setBackText] = React.useState('');
+
+    if(card && frontText == ''){
+        setFrontText(card.front);
+        setBackText(card.back);
+    }
 
     return(
         <>
