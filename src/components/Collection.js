@@ -24,6 +24,7 @@ const Collection = (props) => {
 }
 const style=StyleSheet.create({
     card: {
+        flex: 1,
         borderRadius: 8,
         width: '90%',
         height: 120,
@@ -32,7 +33,7 @@ const style=StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         flexDirection: 'row',
-        alignItems: "center"   
+        alignItems: "center",
     },
     image:{
         margin: 15,

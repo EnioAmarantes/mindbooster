@@ -2,13 +2,35 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import {TextInput} from 'react-native-paper';
 import { Button } from "@react-native-material/core";
+import { initializeApp } from 'firebase/app';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 import Mind from '../../../assets/imgs/mind.png';
+import FireBaseConfig from "../../utils/FirebaseConfig";
 
-const Login = (props) => {
+const Login = props => {
+
+    const {navigation} = props;
+    
     const [email, onChangeEmail] = React.useState('');
     const [pass, onChangePass] = React.useState('');
     const [hidePass, setHidePass] = React.useState(true);
+
+    function login(){
+
+        const firebase = initializeApp(FireBaseConfig);
+        const auth = getAuth(firebase);
+
+        signInWithEmailAndPassword(auth, email, pass)
+            .then((userCredential) => {
+                navigation.navigate('menu')
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                alert('Login Inválido!\n' + errorMessage);
+            });
+    }
 
     return(
         <View style={styles.container}>
@@ -17,7 +39,7 @@ const Login = (props) => {
             <Text style={styles.textHeader}>Mind Booster</Text>
 
             <View style={styles.inputContainer}>
-                    <TextInput style={styles.input} label="E-mail" keyboardType='email-address' />
+                    <TextInput style={styles.input} label="E-mail" keyboardType='email-address' onChangeText={onChangeEmail} />
 
                     <TextInput 
                         style={styles.input}
@@ -33,7 +55,7 @@ const Login = (props) => {
                     <View style={styles.buttonContainer}>
                         <Button 
                             style={styles.buttonLogin} 
-                            onPress={() => { props.navigation.navigate('menu') }} 
+                            onPress={() => login()} 
                             title="ENTRAR" 
                             color="#6A61A1"
                         />

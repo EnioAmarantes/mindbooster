@@ -1,5 +1,5 @@
 import React from "react";
-import {View, StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import {View, StyleSheet, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
 import HeaderDrawerNav from "../../components/HeaderDrawerNavigator";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -8,14 +8,21 @@ Icon.loadFont();
 import {TextInput} from 'react-native-paper';
 import { Button } from "@react-native-material/core";
 import COLORS from "../../utils/Colors";
+import Card from "../../components/Card";
 
 export default function Cards(props) {
     const {navigation} = props;
-    const collection = props.route.params;
+    const {cards, title, collection} = props.route.params;
+
+    console.log(props.route.params)
+    console.log('Coleções ' + collection)
+    console.log(cards)
+
+    const renderItem = ({ item }) => <Card card={item} navigation={navigation} /> ;
 
     return(
         <View>
-            <HeaderDrawerNav title={'Coleção - ' + collection.title } navigation={navigation} />
+            <HeaderDrawerNav title={'Coleção - ' + title } navigation={navigation} />
 
             <SafeAreaView style={styles.container} >
                 <TextInput 
@@ -26,6 +33,12 @@ export default function Cards(props) {
                 <Button
                     style={styles.buttonPlay} 
                     title="Jogar!" 
+                />
+
+                <FlatList
+                    style={styles.items}
+                    data={cards}
+                    renderItem={renderItem}
                 />
 
                 <TouchableOpacity 

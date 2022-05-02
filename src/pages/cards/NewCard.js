@@ -10,6 +10,8 @@ const NewCard = props => {
     const [frontText, setFrontText] = React.useState('');
     const [backText, setBackText] = React.useState('');
 
+    console.log(props.route.params)
+
     return(
         <>
         <HeaderDrawerNav title={'Coleção - ' + headerTitle} navigation={navigation} />

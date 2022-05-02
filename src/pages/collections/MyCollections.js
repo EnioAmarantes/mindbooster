@@ -12,11 +12,17 @@ import Collection from "../../components/Collection";
 const MyCollections = ({navigation}) => {
 
     const COLLECTIONS = [
-        {imagem: BolaImage, title:'Objetos'},
-        {imagem: ColorsImage, title:'Cores'},
-        {imagem: UrsoImage, title:'Animais'},
-        {imagem: ArvoreImage, title:'Adjetivos'},
-        {imagem: SetaImage, title:'Pronomes'},
+        {imagem: BolaImage, title:'Objetos', 
+            cards: [
+                {front: 'Árvore', back: 'Tree'},
+                {front: 'Janela', back: 'Window'},
+                {front: 'Porta', back: 'Door'},
+                {front: 'Parede', back: 'Wall'},
+            ]},
+        {imagem: ColorsImage, title:'Cores', cards: []},
+        {imagem: UrsoImage, title:'Animais', cards: []},
+        {imagem: ArvoreImage, title:'Adjetivos', cards: []},
+        {imagem: SetaImage, title:'Pronomes', cards: []},
     ];
 
     const renderItem = ({ item }) => <Collection collection={item} navigation={navigation} /> ;
