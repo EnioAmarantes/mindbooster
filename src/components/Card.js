@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 Icon.loadFont();
 
 const Card = (props) => {
-    const { card, navigation } = props;
+    const { card, navigation, title } = props;
     return(
         <TouchableOpacity onPress={() => navigation.navigate('newCard')}>
             <View style={style.container}>
@@ -22,7 +22,7 @@ const Card = (props) => {
                 </View>
 
                 <View style={style.iconsContainer}>
-                    <Icon name='pencil' size={28} style={style.edit} />
+                    <Icon name='pencil' size={28} style={style.edit} onPress={() => navigation.navigate('newCard', card, title)} />
                     <Icon name='trash' size={28} style={style.remove} />
                 </View>
             </View>

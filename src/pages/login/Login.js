@@ -40,6 +40,11 @@ const Login = props => {
 
             <View style={styles.inputContainer}>
                     <TextInput style={styles.input} label="E-mail" keyboardType='email-address' onChangeText={onChangeEmail} />
+                    {
+                        (email.length == 0 || ((!email.endsWith('@') && !email.startsWith('@')) && (email.includes('@') && email.includes('.com'))))
+                        ? null 
+                        : <Text style={styles.InvalidEmail}>Email inválido</Text>
+                    }
 
                     <TextInput 
                         style={styles.input}
@@ -98,6 +103,10 @@ const styles = StyleSheet.create({
     },
     input:{
         marginVertical: 10,
+    },
+    InvalidEmail: {
+        color: 'red',
+        marginLeft: 15,
     },
     buttonContainer: {
         justifyContent:'space-between',
